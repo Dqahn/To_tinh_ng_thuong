@@ -1,24 +1,28 @@
-<!DOCTYPE html>
-<html lang="vi">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Gửi đến người tôi thương 💌</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Love Page</title>
   <style>
-    body {
-      background-color: black;
-      overflow: hidden;
+    html, body {
       margin: 0;
-      font-family: sans-serif;
+      padding: 0;
+      overflow: hidden;
+      background-color: black;
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
       color: white;
     }
-    .falling-text {
+    .heart {
       position: absolute;
-      font-size: 40px;
-      animation: fall 5s linear infinite;
+      color: #ff69b4;
+      animation: fall linear infinite;
+      font-size: 24px;
+      transform: translateZ(0);
     }
     @keyframes fall {
       0% {
-        transform: translateY(-100px) rotate(0deg);
+        transform: translateY(-100vh) rotate(0deg);
         opacity: 1;
       }
       100% {
@@ -26,27 +30,41 @@
         opacity: 0;
       }
     }
+    .message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: pink;
+      font-size: 2rem;
+      text-shadow: 0 0 20px hotpink;
+      z-index: 2;
+    }
   </style>
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    Trình duyệt không hỗ trợ âm thanh.
-  </audio>
-
-  <script>
-    const messages = ["i love you", "chuc mung 1/6 nha em be cua binn", "thương Tú Quyên nhiuu", "Q.anh iu T.Quyen", "ben nhau mai nha", "Em là tat ca", "❤️", "💌"];
-    setInterval(() => {
-      const el = document.createElement("div");
-      el.className = "falling-text";
-      el.textContent = messages[Math.floor(Math.random() * messages.length)];
-      el.style.left = Math.random() * 100 + "vw";
-      el.style.top = "-50px";
-      el.style.color = `hsl(${Math.random() * 360}, 100%, 70%)`;
-      el.style.animationDuration = (2 + Math.random() * 4) + "s";
-      document.body.appendChild(el);
-      setTimeout(() => el.remove(), 6000);
-    }, 300);
-  </script>
-</body>
+  <div class="message">
+    <p>Em là tất cả 💖</p>
+    <p>mong em be het gian bin nha💗</p>
+    <p>Cảm ơn vì bạn đã đến!</p>
+    <p>chúc mừng 1/6 nha em be cua bin</p>
+    <p>QAnh ♡ TQuyen</p>
+    <p>bin sẽ luôn bên cạnh nhaa 🥰</p>
+  </div>  <audio autoplay loop>
+    <source src="https://dl.dropboxusercontent.com/scl/fi/yyl2ks9ok0wgrk4kcs3va/NoiNayCoAnh-SonTungMTP.mp3?rlkey=ysqv8ybom0r2yoh0w4nwl6z8d&dl=0" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.textContent = "❤";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (Math.random() * 30 + 10) + "px";
+      heart.style.animationDuration = (Math.random() * 5 + 5) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }
+    setInterval(createHeart, 200);
+  </script></body>
 </html>

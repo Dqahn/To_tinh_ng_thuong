@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gửi đến người tôi thương 💌</title>
+  <style>
+    body {
+      background-color: black;
+      overflow: hidden;
+      margin: 0;
+      font-family: sans-serif;
+      color: white;
+    }
+    .falling-text {
+      position: absolute;
+      font-size: 40px;
+      animation: fall 5s linear infinite;
+    }
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    Trình duyệt không hỗ trợ âm thanh.
+  </audio>
+
+  <script>
+    const messages = ["i love you", "chuc mung 1/6 nha em be cua binn", "thương Tú Quyên nhiuu", "Q.anh iu T.Quyen", "ben nhau mai nha", "Em là tat ca", "❤️", "💌"];
+    setInterval(() => {
+      const el = document.createElement("div");
+      el.className = "falling-text";
+      el.textContent = messages[Math.floor(Math.random() * messages.length)];
+      el.style.left = Math.random() * 100 + "vw";
+      el.style.top = "-50px";
+      el.style.color = `hsl(${Math.random() * 360}, 100%, 70%)`;
+      el.style.animationDuration = (2 + Math.random() * 4) + "s";
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 6000);
+    }, 300);
+  </script>
+</body>
+</html>
